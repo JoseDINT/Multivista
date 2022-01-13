@@ -5,25 +5,43 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace Multivista
 {
     class MainWindowVM : ObservableObject
 
     {
-        public RelayCommand AbrirVentanaCommand { get; }
+        private UserControl opcion;
+
+        public UserControl Opcion
+        {
+            get { return opcion; }
+            set { SetProperty(ref opcion, value); }
+        }
+
+
+        public RelayCommand AbrirUC1Command { get; }
+        public RelayCommand AbrirUC2Command { get; }
 
         private ServicioNavegacion servicio { get; set; }
 
         public MainWindowVM()
         {
-            AbrirVentanaCommand = new RelayCommand(AbrirVentana);
+            AbrirUC1Command = new RelayCommand(AbrirUC1);
+            AbrirUC2Command = new RelayCommand(AbrirUC2);
             servicio = new ServicioNavegacion();
+            Opcion = servicio.AbrirUC1Servicio();
         }
 
-        private void AbrirVentana()
+        private void AbrirUC1()
         {
-            servicio.AbrirVentanaHija();
+            Opcion = servicio.AbrirUC1Servicio();
+        }
+
+        private void AbrirUC2()
+        {
+            Opcion = servicio.AbrirUC2Servicio();
         }
     }
 }

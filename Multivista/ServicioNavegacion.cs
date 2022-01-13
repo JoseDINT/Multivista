@@ -3,16 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace Multivista
 {
     class ServicioNavegacion
     {
-        public void AbrirVentanaHija()
+        
+        internal UserControl AbrirUC1Servicio()
         {
-            VentanaHija nueva = new VentanaHija();
-            nueva.ShowDialog();
+            return new UserControl1();
+        }
 
+        internal UserControl AbrirUC2Servicio()
+        {
+            return new UserControl2();
         }
     }
 }

@@ -10,26 +10,22 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Multivista
 {
     /// <summary>
-    /// Lógica de interacción para VentanaHija.xaml
+    /// Lógica de interacción para UserControl2.xaml
     /// </summary>
-    public partial class VentanaHija : Window
+    public partial class UserControl2 : UserControl
     {
-        private VentanaHijaVM vm;
-        public VentanaHija()
+        private UserControl2VM vm;
+        public UserControl2()
         {
             InitializeComponent();
-            vm = new VentanaHijaVM();
+            vm = new UserControl2VM();
             this.DataContext = vm;
-        }
-
-        private void Aceptar_Click(object sender, RoutedEventArgs e)
-        {
-            DialogResult = true;
         }
     }
 }
